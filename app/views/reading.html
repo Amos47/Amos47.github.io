@@ -1,0 +1,14 @@
+<section >
+<h1 layout="row" layout-align="center center" >My Reading List</h1>
+<p class="md-subhead" layout="row" layout-align="center center" >These are all the books I have read that relate to my professional ambition.</p>
+  <md-list>
+      <md-subheader class="md-no-sticky">Total : {{books.length}} </md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="gr in books">
+        <img ng-src="{{gr.book.image_url}}" class="md-avatar" alt="{{gr.book.title}}" />
+        <div class="md-list-item-text">
+          <h3>{{ gr.book.title }}</h3>
+          <h4>By <span ng-repeat="a in gr.book.authors">{{a.name}} <span data-ng-show="!$last">, </span></span></h4>
+          <p><strong>My Rating:</strong> {{gr.rating}}/5 <strong>Goodreads Average:</strong> {{gr.book.average_rating}}/5</p>
+        </div>
+    </md-list>
+</section>

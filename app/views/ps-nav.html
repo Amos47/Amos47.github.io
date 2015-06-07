@@ -1,0 +1,43 @@
+
+<!-- Side Nav -->
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 site-nav" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex layout-fill>
+  <header layout="row" layout-align="center center" layout-margin layout-padding>
+    <img class="circular" src="https://s3-us-west-2.amazonaws.com/repairquote/core/avatar-jordan" alt="Jordan Amos">
+  </header>
+  <md-divider></md-divider>
+  <ps-menu-item ng-click="closeSidenav('/')" data-ng-href="/#/" >Home</ps-menu-item>
+  <ps-menu-item ng-click="closeSidenav('/projects')" data-ng-href="/#/projects" >My Projects</ps-menu-item>
+  <ps-menu-item ng-click="closeSidenav('/reading')" data-ng-href="/#/reading" >Reading List</ps-menu-item>
+  <ps-menu-item ng-click="closeSidenav('/blog')" data-ng-href="/#/blog" >Dev Blog</ps-menu-item>
+</md-sidenav>
+<!-- Container for content right of toolbar -->
+<div layout="column" flex>
+  <!-- Top tool bar -->
+  <md-toolbar layout="row" layout-align="space-between center" class="site-content-toolbar md-whiteframe-z2">
+    <span layout="row" layout-align="start center">
+      <md-button class="md-icon-button" aria-label="Menu" data-ng-click="toggleSidenav()" hide-gt-sm >
+        <md-icon md-svg-icon="images/menu_black.svg"></md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools" flex>JordanAmos.com</h1>
+    </span>
+    <span hide show-gt-md layout="row" layout-align="end end">
+      <ps-social-buttons></ps-social-buttons>
+    </span>
+  </md-toolbar>
+  <!-- Main content -->
+  <md-content ng-transclude bind-scroll="scroll" md-scroll-y flex layout-padding layout-margin>  </md-content>
+  <!-- Social footer -->
+  <div  hide-gt-md class="md-whiteframe-z2 site-content-toolbar" style="margin: 0; padding: 0;">
+    <div layout="row" layout-align="end start">
+      <ps-social-buttons class="slide-in-right"></ps-social-buttons>
+      <md-button class="md-fab md-mini md-accent slide-in-right" aria-label="Go to top" ng-click="goToTop()" ng-show="scroll > 400">
+        <md-tooltip>Go to top</md-tooltip>
+        <md-icon md-svg-icon="images/top.svg"></md-icon>
+      </md-button>
+    </div>
+  </div>
+  <md-button hide show-gt-md ng-show="scroll > 400" class="md-fab md-accent fixed-bottom-right" aria-label="Back to top" ng-click="goToTop()">
+        <md-tooltip>Go to top</md-tooltip>
+    <md-icon md-svg-src="images/top.svg"></md-icon>
+  </md-button>
+</div>
